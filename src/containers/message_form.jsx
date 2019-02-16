@@ -1,9 +1,14 @@
 import React, { Component} from 'react';
 
 class MessageForm extends Component {
+
+  handleSubmit = (event) => {
+    event.preventDefault();
+  }
+
   render(){
     return(
-      <form className="channel-editor">
+      <form onSubmit={this.handleSubmit} className="channel-editor">
         <input
           type="text"
           className="form-control"
