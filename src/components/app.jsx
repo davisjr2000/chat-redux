@@ -3,8 +3,7 @@ import MessageList from '../containers/message_list';
 
 const App = () => {
   return (
-    <div className="app">
-      <p>I bless the rains down in Africa</p>
+    <div className="messaging-wrapper">
       <MessageList/>
     </div>
   );
