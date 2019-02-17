@@ -2,8 +2,17 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Message from '../components/message'
 import MessageForm from './message_form'
+import { bindActionCreators } from 'redux';
+import { fetchMessages } from '../actions';
 
 class MessageList extends Component {
+  componentWillMount() {
+    this.fetchMessages();
+  }
+
+  fetchMessages = () => {
+    this.props.fetchMessages("paris");
+  }
   renderList() {
     return this.props.messages.map((message) => {
       return (
@@ -27,11 +36,14 @@ class MessageList extends Component {
   }
 };
 
-
 function mapStateToProps(state) {
    return {
     messages: state.messages
    };
 }
 
-export default connect(mapStateToProps)(MessageList)
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators({ fetchMessages }, dispatch);
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(MessageList);
