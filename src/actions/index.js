@@ -14,3 +14,21 @@ export function fetchMessages(channel) {
     payload: promise // Will be resolved by redux-promise
   };
 }
+
+export function createMessage(channel, author, content) {
+  const url = `${BASE_URL}/${channel}/messages`;
+  const body = { author, content }; // ES6 destructuring
+  const promise = fetch(url, {
+    method: 'POST',
+    headers: {
+      Accept: 'application/json',
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(body)
+  }).then(r => r.json());
+
+  return {
+    type: MESSAGE_POSTED,
+    payload: promise // Will be resolved by redux-promise
+  };
+}

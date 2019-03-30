@@ -7,7 +7,7 @@ import { fetchMessages } from '../actions';
 
 class MessageList extends Component {
   componentWillMount() {
-    this.fetchMessages();
+    this.fetchMessages("182");
   }
 
   fetchMessages = () => {
