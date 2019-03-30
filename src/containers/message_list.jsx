@@ -11,7 +11,7 @@ class MessageList extends Component {
   }
 
   fetchMessages = () => {
-    this.props.fetchMessages("paris");
+    this.props.fetchMessages("182");
   }
   renderList() {
     return this.props.messages.map((message) => {

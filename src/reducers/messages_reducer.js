@@ -8,5 +8,11 @@ export default function(state, action) {
     case FETCH_MESSAGES: {
       return action.payload.messages;
     }
+    case MESSAGE_POSTED: {
+      const copiedState = state.slice(0);
+      copiedState.push(action.payload);
+      return copiedState;
+    }
+
   }
 }
